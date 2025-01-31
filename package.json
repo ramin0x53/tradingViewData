@@ -1,0 +1,19 @@
+{
+  "name": "tradingviewdata",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.12.5",
+    "@grpc/proto-loader": "^0.7.13",
+    "@grpc/reflection": "^1.0.4",
+    "@mathieuc/tradingview": "^3.5.0",
+    "google-protobuf": "^3.21.4"
+  }
+}

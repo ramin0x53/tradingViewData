@@ -1,0 +1,28 @@
+import "google/protobuf/timestamp.proto";
+
+syntax = "proto3";
+
+service Tradingview {
+  rpc GetCandles (RequestCandles) returns (Candles) {}
+}
+
+message Candles {
+    repeated Candle candles = 1;
+}
+
+message Candle {
+    google.protobuf.Timestamp openTime = 1;
+    float open = 2;
+    float high = 3;
+    float low = 4;
+    float close = 5;
+    google.protobuf.Timestamp closeTime = 6;
+    float volume = 7;
+}
+
+message RequestCandles {
+    string timeFrame = 1;
+    optional google.protobuf.Timestamp from = 2;
+    optional google.protobuf.Timestamp to = 3;
+    optional int64 range = 4;
+}
