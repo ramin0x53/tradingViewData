@@ -11,9 +11,15 @@ module.exports = class TradingViewHandler {
         });
     }
 
-    getCandles = (call, callback) => {
-        const name = call.request.name;
-        callback(null, { message: `Hello, ${name}!` });
+    getCandles = async (call, callback) => {
+        let candles = [];
+        try {
+            const { symbol, timeFrame, to, range } = call.request;
+            candles.push(
+                ...await this.#tvService.getCandles(symbol, timeFrame, range, to)
+            );
+        } finally {
+            callback(null, { candles });
+        }
     };
-}
-
+};
